@@ -8,7 +8,7 @@ public class PartitionMap {
 	  
 		
 	   public PartitionMap(){
-		   map.put("无", null);
+		   map.put("无", " ");
 		   map.put("东区", "E");
 		   map.put("西区", "W");
 		   
@@ -22,6 +22,7 @@ public class PartitionMap {
 		  // map.put("得分/篮板/助攻", "");
 	   }
 	   public String getItem(String item){
+		   System.out.println("传进来的item："+item);
 		   return map.get(item).toString();
 	   }
 }
