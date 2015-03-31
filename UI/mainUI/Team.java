@@ -175,24 +175,7 @@ public class Team extends JPanel {
 		}
 	});
 		this.add(teamlist);	
-			
-			//双击进入对应球队具体信息
-			teamlist.getTable().addMouseListener(new MouseAdapter() {
-				@Override
-				public void mouseClicked(MouseEvent e) {
-		            // TODO Auto-generated method stub
-					 if (e.getClickCount() == 2)
-					 { 
-				        /*	
-						 SinglePlayerInfo spi=new SinglePlayerInfo("name");
-				        	main_query.frame.change(spi);
-				        	*/
-					 }
-				}
-			});
-
-			
-			
+				
 			comboBox.setModel(new DefaultComboBoxModel(new String[] {"\u6295\u7BEE\u547D\u4E2D\u7387", "\u6295\u7BEE\u51FA\u624B\u6B21\u6570", "\u4E09\u5206\u547D\u4E2D\u6570", "\u4E09\u5206\u51FA\u624B\u6570", "\u7F5A\u7403\u547D\u4E2D\u6570", "\u7F5A\u7403\u51FA\u624B\u6570", "\u8FDB\u653B\u7BEE\u677F\u6570", "\u9632\u5B88\u7BEE\u677F\u6570", "\u7BEE\u677F\u6570", "\u52A9\u653B\u6570", "\u62A2\u65AD\u6570", "\u76D6\u5E3D\u6570", "\u5931\u8BEF\u6570", "\u72AF\u89C4\u6570", "\u6BD4\u8D5B\u5F97\u5206", "\u6295\u7BEE\u547D\u4E2D\u7387", "\u4E09\u5206\u547D\u4E2D\u7387", "\u7F5A\u7403\u547D\u4E2D\u7387", "\u80DC\u7387", "\u8FDB\u653B\u56DE\u5408", "\u8FDB\u653B\u6548\u7387", "\u9632\u5B88\u6548\u7387", "\u7BEE\u677F\u6548\u7387", "\u62A2\u65AD\u6548\u7387", "\u52A9\u653B\u7387"}));
 			comboBox.setBounds(84, 21, 338, 23);
 			
