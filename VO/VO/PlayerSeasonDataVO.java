@@ -9,36 +9,36 @@ public class PlayerSeasonDataVO implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	String name;							//çƒå‘˜çš„å§“å
-	private String teamName;				//æ‰€å±çƒé˜Ÿ
-	private int matchNum;				//å‚èµ›åœºæ•°
-	private int startingNum;				//é¦–å‘åœºæ•°
-	private double defenseNum;				//é˜²å®ˆæ•°
-	private double offenseNum;				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½è¿›æ”»æ•°
-	private double time;					//ä¸Šåœºæ—¶é—´
-	private double BPG; 					//åœºå‡ç›–å¸½
-	private double blockEfficiency;			//ç›–å¸½ç‡
-	private double efficiency; 				//æ•ˆç‡
-	private double reboundNum;				//ç¯®æ¿æ•°
-	private double assistNum;				//åŠ©æ”»æ•°
-	private double turnoverNum;				//å¤±è¯¯æ•°
-	private double stealNum;				//æŠ¢æ–­æ•°
-	private double freeThrowPercentage;		//ç½šçƒå‘½ä¸­ç‡
-	private double foulNum;					//çŠ¯è§„æ•°
-	private double pointNum; 				//å¾—åˆ†
+	String name;							//ÇòÔ±ĞÕÃû
+	private String teamName;				//Çò¶ÓÃû³ÆËõĞ´
+	private int matchNum;				//²ÎÈü³¡Êı
+	private int startingNum;				//Ê×·¢Êı
+	private double defenseNum;				//·ÀÊØÊı
+	private double offenseNum;				//½ø¹¥Êı
+	private double time;					//ÉÏ³¡Ê±¼ä
+	private double BPG; 					//³¡¾ù¸ÇÃ±
+	private double blockEfficiency;			//¸ÇÃ±ÂÊ
+	private double efficiency; 				//Ğ§ÂÊ
+	private double reboundNum;				//Àº°åÊı
+	private double assistNum;				//Öú¹¥Êı
+	private double turnoverNum;				//Ê§ÎóÊı
+	private double stealNum;				//ÇÀ¶ÏÊı
+	private double freeThrowPercentage;		//·£ÇòÃüÖĞÂÊ
+	private double foulNum;					//·¸¹æÊı
+	private double pointNum; 				//µÃ·Ö
 	//ï¿½ï¿½ï¿½ï¿½ï¿½Ã·ï¿½
-	private double threePointPercentage;    //ç½šçƒå‘½ä¸­ç‡
-	private double shootPercentage; 		//Í¶æŠ•ç¯®å‘½ä¸­ç‡
-	private double shootEfficiency;			//æŠ•ç¯®æ•ˆç‡
-	private double assistEfficiency;        //åŠ©æ”»ç‡
-	private double reboundEfficiency;       //ç¯®æ¿ç‡
-	private double offensiveReboundEff;     //è¿›æ”»ç¯®æ¿ç‡
-	private double stealEfficiency;			//æŠ¢æ–­ç‡
-	private double turnoverPercentage;     //å¤±è¯¯ç‡
-	private double usingPercentage;         //ä½¿ç”¨ç‡
-	private double GmSc;						//GmScæ•ˆç‡å€¼   
-	private int seasonDoubleNum;				//2åŒæ•°
-	private int seasonThreeNum;  			//ä¸‰åŒæ•°
+	private double threePointPercentage;    //Èı·ÖÃüÖĞÂÊ
+	private double shootPercentage; 		//Í¶ÀºÃüÖĞÂÊ
+	private double shootEfficiency;			//Í¶ÀºĞ§ÂÊ
+	private double assistEfficiency;        //Öú¹¥Ğ§ÂÊ
+	private double reboundEfficiency;       //Àº°åÂÊ
+	private double offensiveReboundEff;     //½ø¹¥ÂÊ
+	private double stealEfficiency;			//ÇÀ¶ÏÂÊ
+	private double turnoverPercentage;     //Ê§ÎóÂÊ
+	private double usingPercentage;         //Ê¹ÓÃÂÊ
+	private double GmSc;						//GmScĞ§ÂÊ
+	private int seasonDoubleNum;				//Á½Ë«Êı
+	private int seasonThreeNum;  			//ÈıË«Êı
 	
 	
 	public PlayerSeasonDataVO(String name,String teamName,int matchNum, int startingNum,double defenseNum,

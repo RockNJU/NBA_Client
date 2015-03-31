@@ -62,7 +62,7 @@ public class Player extends JPanel {
 	String title[]={"照片","球员姓名  ","所属球队"};
 	Object data[][];
 	TablePanel playerlist;
-	ArrayList<PlayerInfoVO> pvo;
+	ArrayList<PlayerVO> pvo;
 	PlayerBLService pbs;
 	/**
 	 * Create the panel.
@@ -116,7 +116,7 @@ public class Player extends JPanel {
 					for (PlayerVO thisplayer:player) {
 						info[i][0] = "pictures/protrait/"+thisplayer.getInfo().getName()+".png";
 						info[i][1] = i+1+": "+thisplayer.getInfo().getName();
-						info[i][2] = thisplayer.getInfo().getBirth();
+						info[i][2] = thisplayer.getData().getTeamName();
 						i++;
 					}
 					playerlist.updateTable(info);
@@ -154,7 +154,7 @@ public class Player extends JPanel {
 					for (PlayerVO thisplayer:player) {
 						info[0][0] = "pictures/pratrait/"+thisplayer.getInfo().getName()+".png";
 						info[0][1] = 1+": "+thisplayer.getInfo().getName();
-						info[0][2] = thisplayer.getInfo().getBirth();
+						info[0][2] = thisplayer.getData().getTeamName();
 						i++;
 					}
 					playerlist.updateTable(info);
@@ -334,21 +334,21 @@ public class Player extends JPanel {
 	}
 	
 	
-	private Object[][] getdata(ArrayList<PlayerInfoVO> showlist){
+	private Object[][] getdata(ArrayList<PlayerVO> showlist){
 		Object[][] temp=new Object[showlist.size()][3];		
 		System.out.println(showlist.size());
 			for(int i=0;i<showlist.size();i++){
 				String icon;
-				File pic=new File("pictures/portrait/"+showlist.get(i).getName()+".png");
+				File pic=new File("pictures/portrait/"+showlist.get(i).getInfo().getName()+".png");
 				if(!pic.exists()){
 					icon="pictures\\nothing.jpg";
 				}else{
-					icon="pictures/portrait/"+showlist.get(i).getName()+".png";
+					icon="pictures/portrait/"+showlist.get(i).getInfo().getName()+".png";
 				}		
 				//System.out.println(showlist.get(i).getName());
 				temp[i][0]=icon;
-				temp[i][1]=showlist.get(i).getName(); 		
-				temp[i][2]=showlist.get(i).getBirth();						 			
+				temp[i][1]=showlist.get(i).getInfo().getName(); 		
+				temp[i][2]=showlist.get(i).getData().getTeamName();						 			
 		}
 		return temp;
 		
