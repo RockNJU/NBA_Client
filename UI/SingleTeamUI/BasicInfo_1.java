@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
@@ -65,7 +66,7 @@ public class BasicInfo_1 extends JPanel {
 		tvo=tbl.getTeamInfo(teamnameAbb);
 		
 		DOMRasterizer rasterizer = new DOMRasterizer();
-		File svgpic=new File("D:\\\u5927\u4E8C\u4E0B\\java\\DSSforNBA_Client\\pictures\\teams\\"+teamnameAbb+".svg");
+		File svgpic=new File("pictures\\teams\\"+teamnameAbb+".svg");
 		File file=new File("pictures/TEAMPNG/"+teamnameAbb+".png");
 		if(svgpic.exists()){//svg图片存在
 			if(!file.exists()){//png不存在	，新建png图片		
@@ -91,7 +92,7 @@ public class BasicInfo_1 extends JPanel {
 			    converter.execute();		
 			}
 			//否则，直接用
-			image = new ImageIcon("D:\\\u5927\u4E8C\u4E0B\\java\\DSSforNBA_Client\\pictures\\TEAMPNG\\"+teamnameAbb+".PNG");
+			image = new ImageIcon("pictures\\TEAMPNG\\"+teamnameAbb+".PNG");
 		}else{//svg图片不存在
 			image=new ImageIcon("pictures\\nothing.jpg");
 		}
@@ -131,91 +132,91 @@ public class BasicInfo_1 extends JPanel {
 		points.setBounds(480, 70, 80, 15);
 		add(points);
 		
-		
+		int countnum=tvo.getData().getMatchNum();
 		
 		
 		ImageIcon imagebg = new ImageIcon("pictures\\球队背景.png"); 
 		imagebg.setImage(imagebg.getImage().getScaledInstance(582,474,Image.SCALE_DEFAULT)); 
 		//TODO
-		JLabel toulanchushou = new JLabel("\u6295\u7BEE\u51FA\u624B\uFF1A"+String.valueOf(tvo.getData().getShootNum()));
+		JLabel toulanchushou = new JLabel("\u6295\u7BEE\u51FA\u624B\uFF1A"+getCalc(tvo.getData().getShootNum(),countnum));
 		toulanchushou.setForeground(new Color(51, 0, 51));
 		toulanchushou.setFont(new Font("黑体", Font.PLAIN, 15));
 		toulanchushou.setBounds(270, 95, 150, 18);
 		add(toulanchushou);
 		//TODO
-		JLabel toulanmingzhong = new JLabel("\u6295\u7BEE\u547D\u4E2D\uFF1A"+String.valueOf(tvo.getData().getFieldGoal()));
+		JLabel toulanmingzhong = new JLabel("\u6295\u7BEE\u547D\u4E2D\uFF1A"+getCalc(tvo.getData().getFieldGoal(),countnum));
 		toulanmingzhong.setForeground(new Color(51, 0, 51));
 		toulanmingzhong.setFont(new Font("黑体", Font.PLAIN, 15));
 		toulanmingzhong.setBounds(270, 115, 150, 18);
 		add(toulanmingzhong);
 		//TODO
-		JLabel sanfenchushou = new JLabel("\u4E09\u5206\u51FA\u624B\uFF1A"+String.valueOf(tvo.getData().getT_shootNum()));
+		JLabel sanfenchushou = new JLabel("\u4E09\u5206\u51FA\u624B\uFF1A"+getCalc(tvo.getData().getT_shootNum(),countnum));
 		sanfenchushou.setForeground(new Color(51, 0, 51));
 		sanfenchushou.setFont(new Font("黑体", Font.PLAIN, 15));
 		sanfenchushou.setBounds(270, 135, 150, 18);
 		add(sanfenchushou);
 		//TODO
-		JLabel sanfenmingzhong = new JLabel("\u4E09\u5206\u547D\u4E2D\uFF1A"+String.valueOf(tvo.getData().getT_fieldGoal()));
+		JLabel sanfenmingzhong = new JLabel("\u4E09\u5206\u547D\u4E2D\uFF1A"+getCalc(tvo.getData().getT_fieldGoal(),countnum));
 		sanfenmingzhong.setForeground(new Color(51, 0, 51));
 		sanfenmingzhong.setFont(new Font("黑体", Font.PLAIN, 15));
 		sanfenmingzhong.setBounds(270, 153, 150, 18);
 		add(sanfenmingzhong);
 		//TODO
-		JLabel faqiuchushou = new JLabel("\u7F5A\u7403\u51FA\u624B\uFF1A"+String.valueOf(tvo.getData().getFreeThrowNum()));
+		JLabel faqiuchushou = new JLabel("\u7F5A\u7403\u51FA\u624B\uFF1A"+getCalc(tvo.getData().getFreeThrowNum(),countnum));
 		faqiuchushou.setForeground(new Color(51, 0, 51));
 		faqiuchushou.setFont(new Font("黑体", Font.PLAIN, 15));
 		faqiuchushou.setBounds(270, 173, 150, 18);
 		add(faqiuchushou);
 		//TODO
-		JLabel faqiumingzhong = new JLabel("\u7F5A\u7403\u547D\u4E2D\uFF1A"+String.valueOf(tvo.getData().getFreeThrowGoalNum()));
+		JLabel faqiumingzhong = new JLabel("\u7F5A\u7403\u547D\u4E2D\uFF1A"+getCalc(tvo.getData().getFreeThrowGoalNum(),countnum));
 		faqiumingzhong.setForeground(new Color(51, 0, 51));
 		faqiumingzhong.setFont(new Font("黑体", Font.PLAIN, 15));
 		faqiumingzhong.setBounds(270, 191, 150, 18);
 		add(faqiumingzhong);
 		//TODO
-		JLabel fangui = new JLabel("\u72AF\u89C4\uFF1A"+String.valueOf(tvo.getData().getFoulNum()));
+		JLabel fangui = new JLabel("\u72AF\u89C4\uFF1A"+getCalc(tvo.getData().getFoulNum(),countnum));
 		fangui.setForeground(new Color(51, 0, 51));
 		fangui.setFont(new Font("黑体", Font.PLAIN, 15));
 		fangui.setBounds(270, 210, 150, 18);
 		add(fangui);
 		//TODO
-		JLabel lanban = new JLabel("\u7BEE\u677F\uFF1A"+String.valueOf(tvo.getData().getReboundNum()));
+		JLabel lanban = new JLabel("\u7BEE\u677F\uFF1A"+getCalc(tvo.getData().getReboundNum(),countnum));
 		lanban.setForeground(new Color(51, 0, 51));
 		lanban.setFont(new Font("黑体", Font.PLAIN, 15));
 		lanban.setBounds(422, 95, 150, 18);
 		add(lanban);
 		//TODO
-		JLabel jingonglanban = new JLabel("\u8FDB\u653B\u7BEE\u677F\uFF1A"+String.valueOf(tvo.getData().getO_ReboundNum()));
+		JLabel jingonglanban = new JLabel("\u8FDB\u653B\u7BEE\u677F\uFF1A"+getCalc(tvo.getData().getO_ReboundNum(),countnum));
 		jingonglanban.setForeground(new Color(51, 0, 51));
 		jingonglanban.setFont(new Font("黑体", Font.PLAIN, 15));
 		jingonglanban.setBounds(422, 115, 150, 18);
 		add(jingonglanban);
 		//TODO
-		JLabel fangshoulanban = new JLabel("\u9632\u5B88\u7BEE\u677F\uFF1A"+String.valueOf(tvo.getData().getD_ReboundNum()));
+		JLabel fangshoulanban = new JLabel("\u9632\u5B88\u7BEE\u677F\uFF1A"+getCalc(tvo.getData().getD_ReboundNum(),countnum));
 		fangshoulanban.setForeground(new Color(51, 0, 51));
 		fangshoulanban.setFont(new Font("黑体", Font.PLAIN, 15));
 		fangshoulanban.setBounds(422, 135, 150, 18);
 		add(fangshoulanban);
 		//TODO
-		JLabel zhugong = new JLabel("\u52A9\u653B\uFF1A"+String.valueOf(tvo.getData().getAssistNum()));
+		JLabel zhugong = new JLabel("\u52A9\u653B\uFF1A"+getCalc(tvo.getData().getAssistNum(),countnum));
 		zhugong.setForeground(new Color(51, 0, 51));
 		zhugong.setFont(new Font("黑体", Font.PLAIN, 15));
 		zhugong.setBounds(422, 153, 150, 18);
 		add(zhugong);
 		//TODO
-		JLabel qiangduan = new JLabel("\u62A2\u65AD\uFF1A"+String.valueOf(tvo.getData().getStealNum()));
+		JLabel qiangduan = new JLabel("\u62A2\u65AD\uFF1A"+getCalc(tvo.getData().getStealNum(),countnum));
 		qiangduan.setForeground(new Color(51, 0, 51));
 		qiangduan.setFont(new Font("黑体", Font.PLAIN, 15));
 		qiangduan.setBounds(422, 173, 150, 18);
 		add(qiangduan);
 		//TODO
-		JLabel gaimao = new JLabel("\u76D6\u5E3D\uFF1A"+"12"+String.valueOf(tvo.getData().getBlockNum()));
+		JLabel gaimao = new JLabel("\u76D6\u5E3D\uFF1A"+"12"+getCalc(tvo.getData().getBlockNum(),countnum));
 		gaimao.setForeground(new Color(51, 0, 51));
 		gaimao.setFont(new Font("黑体", Font.PLAIN, 15));
 		gaimao.setBounds(422, 191, 150, 18);
 		add(gaimao);
 		//TODO
-		JLabel shiwu = new JLabel("\u5931\u8BEF\uFF1A"+String.valueOf(tvo.getData().getTurnoverNum()));
+		JLabel shiwu = new JLabel("\u5931\u8BEF\uFF1A"+getCalc(tvo.getData().getTurnoverNum(),countnum));
 		shiwu.setForeground(new Color(51, 0, 51));
 		shiwu.setFont(new Font("黑体", Font.PLAIN, 15));
 		shiwu.setBounds(422, 210, 150, 18);
@@ -283,6 +284,14 @@ public class BasicInfo_1 extends JPanel {
 		for(int i=0;i<players.size();i++){
 			temp[i][0]=players.get(i);
 		}	
+		return temp;
+	}
+	
+	
+	private String getCalc(int data,int count){
+		double result=(double)(data/count);
+		DecimalFormat df = new DecimalFormat( "0.00");    
+		String temp=String.valueOf(df.format(result));
 		return temp;
 	}
 }
