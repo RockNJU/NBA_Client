@@ -86,6 +86,7 @@ public class Player extends JPanel {
 					String Position = position.getSelectedItem().toString();
 					String Partition = partition.getSelectedItem().toString();
 					String According = according.getSelectedItem().toString();
+					
 					//判断东西区
 					String division = null ; // W是西区 ， E是东区
 					if(partition.equals("大西洋")||partition.equals("中部")||partition.equals("东南")||partition.equals("东区")){
@@ -97,6 +98,10 @@ public class Player extends JPanel {
 					else{
 						division = "W";
 					}
+					//
+					if(Position == null){Position = "无";}
+					if(Partition == null){Partition = "无";}
+					if(According == null){According = "得分";}
 					player = p.sort(lm.getItem(Position),pm.getItem(Partition),pym.getItem(According));
 					
 				} catch (MalformedURLException | RemoteException
