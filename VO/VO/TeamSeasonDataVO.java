@@ -1,8 +1,5 @@
 package VO;
-
 import java.io.Serializable;
-
-
 
 public class TeamSeasonDataVO implements Serializable{
 	/**
@@ -15,6 +12,7 @@ public class TeamSeasonDataVO implements Serializable{
 
 	String teamName; 				// 队名
 	int matchNum; 					// 比赛场数
+	int winNum;           // numbers of matches that a team wins
 	int fieldGoal; // Ͷ��������
 	int shootNum; // Ͷ��������
 	int T_fieldGoal; // ������������
@@ -41,13 +39,14 @@ public class TeamSeasonDataVO implements Serializable{
 	double stealEfficiency = 0; // ������
 	double assistEfficiency = 0; // ������
 
-	public TeamSeasonDataVO(String teamName,int matchNum,int fieldGoal,int shootNum,int T_fieldGoal,int T_shootNum,
+	public TeamSeasonDataVO(String teamName,int matchNum,int winNum,int fieldGoal,int shootNum,int T_fieldGoal,int T_shootNum,
 	int freeThrowGoalNum,int freeThrowNum,int O_ReboundNum,int D_ReboundNum,int assistNum,int stealNum,int reboundNum,int blockNum,
 	int turnoverNum,int foulNum,int points,double shootPercentage,double threePointPercentage,double freeThrowPercentage,
 	double winRate,double offenseRound,double offenseEfficiency,double defenseEfficiency,double reboundEfficiency,
 	double stealEfficiency ,double assistEfficiency){
 		this.teamName = teamName; // �����������
 		this.matchNum = matchNum ; // ��������
+		this.winNum = winNum;
 		this.fieldGoal = fieldGoal ; // Ͷ��������
 		this.shootNum = shootNum ; // Ͷ��������
 		this.T_fieldGoal = T_fieldGoal ; // ������������
@@ -88,6 +87,14 @@ public class TeamSeasonDataVO implements Serializable{
 
 	public void setPointNum(int i) {
 		this.points = i;
+	}
+	
+	public int getWinNum(){
+		return winNum;
+	}
+	
+	public void setWinNum(int i){
+		this.winNum = i;
 	}
 	
 	public int getMatchNum(){
