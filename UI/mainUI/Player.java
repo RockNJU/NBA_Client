@@ -137,7 +137,7 @@ public class Player extends JPanel {
 		find.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PlayerBLService p;
-				PlayerInfoVO player = null;
+				ArrayList<PlayerVO>  player = new ArrayList<PlayerVO>();
 				try {
 					p = Rmi.getPlayerRMI();
 					String Findkey = findkey.getText();
@@ -150,9 +150,13 @@ public class Player extends JPanel {
 				
 				if(player!=null){
 					Object[][]  info = new Object[500][3];
-						info[0][0] = "pictures/pratrait/"+player.getName()+".png";
-						info[0][1] = 1+": "+player.getName();
-						info[0][2] = player.getBirth();
+					int i = 0;
+					for (PlayerVO thisplayer:player) {
+						info[0][0] = "pictures/pratrait/"+thisplayer.getInfo().getName()+".png";
+						info[0][1] = 1+": "+thisplayer.getInfo().getName();
+						info[0][2] = thisplayer.getInfo().getBirth();
+						i++;
+					}
 					playerlist.updateTable(info);
 				}
 				else{
