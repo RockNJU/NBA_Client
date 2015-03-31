@@ -291,12 +291,14 @@ public class Team extends JPanel {
 			for(int i=0;i<showlist.size();i++){
 				System.out.println(showlist.get(i)==null);
 				String teamnameAbb=showlist.get(i).getInfo().getTeamAbb();
-				//System.out.println(teamnameAbb);
+				System.out.println(teamnameAbb);
 				String image;
-				File svgpic=new File("D:\\\u5927\u4E8C\u4E0B\\java\\DSSforNBA_Client\\pictures\\teams\\"+teamnameAbb+".svg");
+				File svgpic=new File("pictures\\teams\\"+teamnameAbb+".svg");
 				File file=new File("pictures/TEAMPNG/"+teamnameAbb+".png");
 				if(svgpic.exists()){//svg图片存在
+					System.out.println("111---");
 					if(!file.exists()){//png不存在，新建png图片		
+						System.out.println("222---");
 						InputStream in = new FileInputStream(svgpic);			
 						Document svgXmlDoc = rasterizer.createDocument(in);
 					    // Save this SVG into a file (required by SVG -> PNG transformation process)			
@@ -319,7 +321,9 @@ public class Team extends JPanel {
 					    converter.execute();		
 					}
 					//否则，直接用
-					image = "D:\\\u5927\u4E8C\u4E0B\\java\\DSSforNBA_Client\\pictures\\TEAMPNG\\"+teamnameAbb+".PNG";
+					
+					image = "pictures\\TEAMPNG\\"+teamnameAbb+".PNG";
+					
 				}else{//svg图片不存在
 					image="pictures\\nothing.jpg";
 				}
