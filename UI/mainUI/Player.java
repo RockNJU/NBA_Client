@@ -114,7 +114,7 @@ public class Player extends JPanel {
 					Object[][]  info = new Object[500][3];
 					int i = 0;
 					for (PlayerVO thisplayer:player) {
-						info[i][0] = "pictures/protrait/"+thisplayer.getInfo().getName()+".png";
+						info[i][0] = "pictures/portrait/"+thisplayer.getInfo().getName()+".png";
 						info[i][1] = i+1+": "+thisplayer.getInfo().getName();
 						info[i][2] = thisplayer.getData().getTeamName();
 						i++;
@@ -152,7 +152,7 @@ public class Player extends JPanel {
 					Object[][]  info = new Object[500][3];
 					int i = 0;
 					for (PlayerVO thisplayer:player) {
-						info[0][0] = "pictures/pratrait/"+thisplayer.getInfo().getName()+".png";
+						info[0][0] = "pictures/portrait/"+thisplayer.getInfo().getName()+".png";
 						info[0][1] = 1+": "+thisplayer.getInfo().getName();
 						info[0][2] = thisplayer.getData().getTeamName();
 						i++;
