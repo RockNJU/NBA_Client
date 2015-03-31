@@ -9,41 +9,41 @@ public class TeamMatchVO implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	/*
-	 * һ��������һ֧��ӵ��������ݣ���ʾ�����ܺ����� ֻ�ɶ��������޸�
+	 * 一锟斤拷锟斤拷锟斤拷锟斤拷一支锟斤拷拥锟斤拷锟斤拷锟斤拷锟斤拷荩锟斤拷锟绞撅拷锟斤拷锟斤拷芎锟斤拷锟斤拷锟� 只锟缴讹拷锟斤拷锟斤拷锟斤拷锟睫革拷
 	 */
 	private String teamName;
-	private int points; // �÷�
-	private int defenseNum; // ������
-	private int offenseNum; // ������
-	private int reboundNum; // ��������
-	private int O_ReboundNum; // ������ǰ����������
-	private int D_ReboundNum; // ���أ��󳡣�������
-	private int assistNum; // ������
-	private int turnoverNum; // ʧ����
-	private int stealNum; // ������
-	private int foulNum; // ������
-	private int fieldGoal; // Ͷ��������
-	private int shootNum; // Ͷ��������
-	private int T_fieldGoal; // ������������
-	private int T_shootNum; // �����������
-	private int freeThrowGoalNum; // ����������
-	private int freeThrowNum; // ���������
-	private int blockNum; // ��ñ��
-	private double offenseRound; // �����غ�
-	private double defenseRound; // ���ػغ�
+	private int points; // 总得分
+	private int defenseNum; // 防守数
+	private int offenseNum; // 进攻数
+	private int reboundNum; // 篮板总数
+	private int O_ReboundNum; // 进攻篮板数
+	private int D_ReboundNum; // 防守篮板数
+	private int assistNum; // 助攻数
+	private int turnoverNum; // 失误数
+	private int stealNum; // 抢断数
+	private int foulNum; // 犯规数
+	private int fieldGoal; // 投篮命中数
+	private int shootNum; // 投篮总数
+	private int T_fieldGoal; // 三分命中数
+	private int T_shootNum; // 三分出手数
+	private int freeThrowGoalNum; // 罚篮命中数
+	private int freeThrowNum; // 罚篮出手数
+	private int blockNum; // 盖帽数
+	private double offenseRound; // 进攻回合
+	private double defenseRound; // 防守回合
 
-	private double freeThrowPercentage = 0; // ����������
-	private double threePointPercentage = 0; // ����������
-	private double shootPercentage = 0; // Ͷ��������
-	private double assistEfficiency = 0; // ������
-	private double O_ReboundEfficiency = 0; // ����������
-	private double D_ReboundEfficiency = 0; // ����������
-	private double stealEfficiency = 0; // ������
-	private double defenseEfficiency = 0; // ����Ч��
-	private double offenseEfficiency = 0; // ����Ч��
-	private double reboundEfficiency = 0; // ����Ч��
+	private double freeThrowPercentage = 0; // 罚球命中率
+	private double threePointPercentage = 0; // 三分命中率
+	private double shootPercentage = 0; // 命中率
+	private double assistEfficiency = 0; // 助攻率
+	private double O_ReboundEfficiency = 0; // 进攻篮板率
+	private double D_ReboundEfficiency = 0; // 防守篮板率
+	private double stealEfficiency = 0; // 抢断率
+	private double defenseEfficiency = 0; // 防守效率
+	private double offenseEfficiency = 0; // 进攻效率
+	private double reboundEfficiency = 0; // 篮板效率
 
-	private ArrayList<SingleMatchPersonalDataVO> individualData; // �ó�������������Ա��������Ϣ
+	private ArrayList<SingleMatchPersonalDataVO> individualData; // 锟矫筹拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷员锟斤拷锟斤拷锟斤拷锟斤拷息
 
 	public TeamMatchVO(String teamName, int pointNum, int defenseNum,
 			int offenseNum, int reboundNum, int O_ReboundNum, int D_ReboundNum,
@@ -79,15 +79,15 @@ public class TeamMatchVO implements Serializable{
 		this.defenseRound = defenseRound;
 		this.individualData = individualData;
 
-		this.freeThrowPercentage = freeThrowPercentage; // ����������
-		this.threePointPercentage = threePointPercentage; // ����������
-		this.shootPercentage = shootPercentage; // Ͷ��������
-		this.assistEfficiency = assistEfficiency; // ������
-		this.O_ReboundEfficiency = O_ReboundEfficiency; // ����������
-		this.D_ReboundEfficiency = D_ReboundEfficiency; // ����������
-		this.stealEfficiency = stealEfficiency; // ������
-		this.defenseEfficiency = defenseEfficiency; // ����Ч��
-		this.offenseEfficiency = offenseEfficiency; // ����Ч��
+		this.freeThrowPercentage = freeThrowPercentage; // 锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
+		this.threePointPercentage = threePointPercentage; // 锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
+		this.shootPercentage = shootPercentage; // 投锟斤拷锟斤拷锟斤拷锟斤拷
+		this.assistEfficiency = assistEfficiency; // 锟斤拷锟斤拷锟斤拷
+		this.O_ReboundEfficiency = O_ReboundEfficiency; // 锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
+		this.D_ReboundEfficiency = D_ReboundEfficiency; // 锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
+		this.stealEfficiency = stealEfficiency; // 锟斤拷锟斤拷锟斤拷
+		this.defenseEfficiency = defenseEfficiency; // 锟斤拷锟斤拷效锟斤拷
+		this.offenseEfficiency = offenseEfficiency; // 锟斤拷锟斤拷效锟斤拷
 
 	}
 

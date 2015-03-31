@@ -112,7 +112,7 @@ public class Team extends JPanel {
 			@SuppressWarnings("null")
 			public void actionPerformed(ActionEvent e) {
 				TeamBLService t;
-				ArrayList<TeamVO> team = null;
+				ArrayList<TeamVO> team = new ArrayList<TeamVO>();
 				Object[][] info = null;
 				try {
 					t = Rmi.getTeamRMI();

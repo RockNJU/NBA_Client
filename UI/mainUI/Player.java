@@ -106,7 +106,7 @@ public class Player extends JPanel {
 				}
 				
 				if(!player.isEmpty()){
-					Object[][] info = null;
+					Object[][]  info = new Object[500][3];
 					int i = 0;
 					for (PlayerVO thisplayer:player) {
 						info[i][0] = "pictures/protrait/"+thisplayer.getInfo().getName()+".png";
@@ -144,7 +144,7 @@ public class Player extends JPanel {
 				}
 				
 				if(player!=null){
-					Object[][] info = null;
+					Object[][]  info = new Object[500][3];
 						info[0][0] = "pictures/pratrait/"+player.getName()+".png";
 						info[0][1] = 1+": "+player.getName();
 						info[0][2] = player.getBirth();
