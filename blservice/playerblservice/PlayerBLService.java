@@ -10,7 +10,7 @@ import VO.PlayerVO;
 public interface PlayerBLService extends Remote{
 	public ArrayList<PlayerInfoVO> getAllPlayer()throws RemoteException;		
 	public PlayerVO getPlayer(String name)throws RemoteException;
-	public PlayerInfoVO getPlayerInfo(String name)throws RemoteException;		        //
+	public ArrayList<PlayerVO> getPlayerInfo(String name)throws RemoteException;		        //
 	public ArrayList<PlayerVO> sort(String position,String paitition,String item)throws RemoteException;	
 	
 }
