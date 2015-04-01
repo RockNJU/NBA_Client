@@ -50,15 +50,19 @@ public class BasicInfo extends JPanel {
 		setLayout(null);
 		
 		this.playername=name;
-
+		
+		System.out.println(playername);
 		
 		pbl=rmi.getPlayerRMI();
 		pvo=pbl.getPlayer(playername);
-		File pic=new File("D:\\\u5927\u4E8C\u4E0B\\java\\DSSforNBA_Client\\pictures\\portrait\\"+pvo.getInfo().getName()+".png");
+		if(pvo==null){
+			System.out.println("fuck");
+		}
+		File pic=new File("pictures\\portrait\\"+pvo.getInfo().getName()+".png");
 		if(!pic.exists()){
 			image=new ImageIcon("pictures\\nothing.jpg");
 		}else{
-		image= new ImageIcon("D:\\\u5927\u4E8C\u4E0B\\java\\DSSforNBA_Client\\pictures\\portrait\\"+pvo.getInfo().getName()+".png");
+		image= new ImageIcon("pictures\\portrait\\"+pvo.getInfo().getName()+".png");
 		}
 		image.setImage(image.getImage().getScaledInstance(178,147,Image.SCALE_DEFAULT)); 		
 		JLabel photo = new JLabel(image);		
@@ -370,7 +374,7 @@ public class BasicInfo extends JPanel {
 		add(count8info);
 		
 		//投篮命中率
-		ImageIcon info_1 = new ImageIcon("D:\\\u5927\u4E8C\u4E0B\\java\\DSSforNBA_Client\\pictures\\1-100\\投篮命中率.png"); 
+		ImageIcon info_1 = new ImageIcon("pictures\\1-100\\投篮命中率.png"); 
 		info_1.setImage(info_1.getImage().getScaledInstance(97,79,Image.SCALE_DEFAULT)); 
 		JLabel info1 = new JLabel(info_1);
 		//photo.setIcon(new ImageIcon("D:\\\u5927\u4E8C\u4E0B\\java\\DSSforNBA_Client\\pictures\\portrait\\Aaron Brooks.png"));
@@ -378,7 +382,7 @@ public class BasicInfo extends JPanel {
 		info1.setOpaque(false);
 		add(info1);
 		
-		ImageIcon percent_1 = new ImageIcon("D:\\\u5927\u4E8C\u4E0B\\java\\DSSforNBA_Client\\pictures\\1-100\\命中率_"+getpicturename(pvo.getData().getShootPercentage())+".png"); 
+		ImageIcon percent_1 = new ImageIcon("pictures\\1-100\\命中率_"+getpicturename(pvo.getData().getShootPercentage())+".png"); 
 		percent_1.setImage(percent_1.getImage().getScaledInstance(188,185,Image.SCALE_DEFAULT)); 
 		JLabel percent1 = new JLabel(percent_1);
 		//photo.setIcon(new ImageIcon("D:\\\u5927\u4E8C\u4E0B\\java\\DSSforNBA_Client\\pictures\\portrait\\Aaron Brooks.png"));
@@ -388,7 +392,7 @@ public class BasicInfo extends JPanel {
 		
 	
 		
-		ImageIcon info_2 = new ImageIcon("D:\\\u5927\u4E8C\u4E0B\\java\\DSSforNBA_Client\\pictures\\1-100\\三分命中率.png"); 
+		ImageIcon info_2 = new ImageIcon("pictures\\1-100\\三分命中率.png"); 
 		info_2.setImage(info_2.getImage().getScaledInstance(97,79,Image.SCALE_DEFAULT)); 
 		JLabel info2 = new JLabel(info_2);
 		//photo.setIcon(new ImageIcon("D:\\\u5927\u4E8C\u4E0B\\java\\DSSforNBA_Client\\pictures\\portrait\\Aaron Brooks.png"));
@@ -398,7 +402,7 @@ public class BasicInfo extends JPanel {
 		//158,157
 		//197,457
 		//三分命中率
-		ImageIcon percent_2 = new ImageIcon("D:\\\u5927\u4E8C\u4E0B\\java\\DSSforNBA_Client\\pictures\\1-100\\命中率_"+getpicturename(pvo.getData().getShootPercentage())+".png"); 
+		ImageIcon percent_2 = new ImageIcon("pictures\\1-100\\命中率_"+getpicturename(pvo.getData().getShootPercentage())+".png"); 
 		percent_2.setImage(percent_2.getImage().getScaledInstance(188,185,Image.SCALE_DEFAULT)); 		
 		JLabel percent2 = new JLabel(percent_2);
 		//photo.setIcon(new ImageIcon("D:\\\u5927\u4E8C\u4E0B\\java\\DSSforNBA_Client\\pictures\\portrait\\Aaron Brooks.png"));
@@ -407,7 +411,7 @@ public class BasicInfo extends JPanel {
 		add(percent2);
 		
 		
-		ImageIcon info_3 = new ImageIcon("D:\\\u5927\u4E8C\u4E0B\\java\\DSSforNBA_Client\\pictures\\1-100\\罚球命中率.png"); 
+		ImageIcon info_3 = new ImageIcon("pictures\\1-100\\罚球命中率.png"); 
 		info_3.setImage(info_3.getImage().getScaledInstance(97,79,Image.SCALE_DEFAULT)); 
 		JLabel info3 = new JLabel(info_3);
 		//photo.setIcon(new ImageIcon("D:\\\u5927\u4E8C\u4E0B\\java\\DSSforNBA_Client\\pictures\\portrait\\Aaron Brooks.png"));
@@ -415,7 +419,7 @@ public class BasicInfo extends JPanel {
 		info3.setOpaque(false);
 		add(info3);
 		//罚球命中率
-		ImageIcon percent_3 = new ImageIcon("D:\\\u5927\u4E8C\u4E0B\\java\\DSSforNBA_Client\\pictures\\1-100\\命中率_"+getpicturename(pvo.getData().getShootPercentage())+".png"); 
+		ImageIcon percent_3 = new ImageIcon("pictures\\1-100\\命中率_"+getpicturename(pvo.getData().getShootPercentage())+".png"); 
 		percent_3.setImage(percent_3.getImage().getScaledInstance(188,185,Image.SCALE_DEFAULT)); 		
 		JLabel percent3 = new JLabel(percent_3);
 		//photo.setIcon(new ImageIcon("D:\\\u5927\u4E8C\u4E0B\\java\\DSSforNBA_Client\\pictures\\portrait\\Aaron Brooks.png"));

@@ -103,7 +103,11 @@ public class Player extends JPanel {
 					if(Partition == null){Partition = "无";}
 					if(According == null){According = "得分";}
 					player = p.sort(lm.getItem(Position),pm.getItem(Partition),pym.getItem(According));
-					
+					System.out.println("--------------");
+					for(int i=0;i<player.size();i++){
+						System.out.println("******；"+player.get(i).getInfo().getName()+";"+player.get(i).getData().getPointNum()+"-----"+(1+i));
+					}
+					System.out.println("--------------");
 				} catch (MalformedURLException | RemoteException
 						| NotBoundException e1) {
 					// TODO 自动生成的 catch 块
@@ -111,14 +115,17 @@ public class Player extends JPanel {
 				}
 				
 				if(!player.isEmpty()){
-					Object[][]  info = new Object[500][3];
+					Object[][]  info = new Object[50][3];
 					int i = 0;
 					for (PlayerVO thisplayer:player) {
 						info[i][0] = "pictures/portrait/"+thisplayer.getInfo().getName()+".png";
-						info[i][1] = i+1+": "+thisplayer.getInfo().getName();
+						info[i][1] = thisplayer.getInfo().getName();
 						info[i][2] = thisplayer.getData().getTeamName();
 						i++;
+						if(i==50){break;}
 					}
+			
+					
 					playerlist.updateTable(info);
 				}
 				else{
@@ -153,7 +160,7 @@ public class Player extends JPanel {
 					int i = 0;
 					for (PlayerVO thisplayer:player) {
 						info[0][0] = "pictures/portrait/"+thisplayer.getInfo().getName()+".png";
-						info[0][1] = 1+": "+thisplayer.getInfo().getName();
+						info[0][1] = thisplayer.getInfo().getName();
 						info[0][2] = thisplayer.getData().getTeamName();
 						i++;
 					}

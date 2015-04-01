@@ -16,8 +16,15 @@ public class PlayerMap {
 	   map.put("抢断", "stealNum");
 	   map.put("犯规", "foulNum");
 	   map.put("失误", "turoverNum");
-	   map.put("上场时间", "time");
+	   map.put("分钟", "time");
 	   map.put("效率", "efficiency");
+	   
+	   
+	   //---------------------
+	   map.put("投篮", "shootPercentage");
+	   map.put("三分", "threePointPercentage");
+	   map.put("罚球", "freeThrowPercentage");
+	   map.put("两双", "doubleNum");
 	   //map.put("", "");   
    }
    

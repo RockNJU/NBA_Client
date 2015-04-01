@@ -13,7 +13,7 @@ public class RMIObject {
 		String ip;
 		String adress;
 		public RMIObject(){
-			ip="114.212.43.58";  
+			ip="172.26.1.135";  
 			adress="rmi://"+ip;
 		}
 		

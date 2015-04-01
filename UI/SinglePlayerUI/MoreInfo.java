@@ -92,6 +92,7 @@ public class MoreInfo extends JPanel {
 		scrollPane.updateUI();
 		scrollPane
 				.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane.setViewportView(matchtable);
 		add(scrollPane);
 
 		// µ½´Ë½áÊø
