@@ -54,6 +54,7 @@ public class Team extends JPanel {
 	Icon a=new ImageIcon("pictures/logo.png");
 	Icon b=new ImageIcon("pictures/名称.png");
 	Icon c=new ImageIcon("pictures/建队时间.png");
+	TeamMap teammap = new TeamMap();
 	String title[]={"LOGO","球队名称  ","建队时间"};
 	Object[][] data={{"","",""},{"","",""}};
 	TablePanel teamlist=new TablePanel(title,a,b,c,data,23,125,540,457,127,157,253,128,new Font("华文行楷", Font.PLAIN, 18),new Font("华文行楷", Font.PLAIN, 18),157,127);
@@ -122,9 +123,10 @@ public class Team extends JPanel {
 			 { 
 				 	String name =teamlist.getValueAt(teamlist.getSelectedRow(),1);
 				 	String[] newname=name.split("---");
-				 	
+				 	if(newname != null){
 		        	SingleTeamInfo spi=new SingleTeamInfo(newname[1]);
 		        	main_query.frame.change(spi);
+				 	}
 			 }
 		}
 	});
@@ -171,7 +173,7 @@ public class Team extends JPanel {
 				Object[][]  info = new Object[50][3];
 				
 					t = Rmi.getTeamRMI();
-					team = t.sort(comboBox.getSelectedItem().toString());
+					team = t.sort(teammap.getItem(comboBox.getSelectedItem().toString()));
 					info = getdata(team);
 					teamlist.updateTable(info);
 				
