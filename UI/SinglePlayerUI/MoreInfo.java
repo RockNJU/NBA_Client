@@ -87,7 +87,7 @@ public class MoreInfo extends JPanel {
 		matchtable.getColumnModel().getColumn(0).setMinWidth(75);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(18, 125, 554, 450);
+		scrollPane.setBounds(18, 15, 554, 450);
 		scrollPane.setVisible(true);
 		scrollPane.updateUI();
 		scrollPane
