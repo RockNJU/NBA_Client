@@ -133,8 +133,10 @@ public class TablePanel extends JPanel implements TableModelListener {
 		@Override
 		public Object getValueAt(int r, int c) {
 			// TODO Auto-generated method stub
-
+			if(data.length>=r)
 				return data[r][c];
+			else
+				return null;
 	
 		}
 
