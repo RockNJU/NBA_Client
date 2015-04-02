@@ -168,7 +168,7 @@ public class Team extends JPanel {
 				try {
 				TeamBLService t;
 				ArrayList<TeamVO> team = new ArrayList<TeamVO>();
-				Object[][] info = null;
+				Object[][]  info = new Object[50][3];
 				
 					t = Rmi.getTeamRMI();
 					team = t.sort(comboBox.getSelectedItem().toString());
