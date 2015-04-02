@@ -78,29 +78,7 @@ public class Team extends JPanel {
 		setLayout(null);
 		
 		final JButton sort = new JButton("New button");
-		sort.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TeamBLService t;
-				ArrayList<TeamVO> team = new ArrayList<TeamVO>();
-				Object[][] info = null;
-				try {
-					t = Rmi.getTeamRMI();
-					team = t.sort(comboBox.getSelectedItem().toString());
-					info = getdata(team);
-				} catch (NotBoundException | IOException | TransformerFactoryConfigurationError | TransformerException | SVGConverterException e1) {
-					// TODO 自动生成的 catch 块
-					e1.printStackTrace();
-				}
-				
-				if(info.length != 0){
-					teamlist.updateTable(info);
-				}
-				else{
-					JOptionPane.showMessageDialog(null, "未查找到对应结果", "警告", JOptionPane.ERROR_MESSAGE);
-				}
-				
-			}
-		});
+		
 		sort.setToolTipText("\u5F00\u59CB\u8FDB\u884C\u67E5\u8BE2\u6392\u5217");
 		sort.setIcon(new ImageIcon("D:\\\u5927\u4E8C\u4E0B\\java\\DSSforNBA_Client\\pictures\\\u6392\u5217.png"));
 		sort.setBounds(513, 21, 69, 24);
@@ -108,31 +86,7 @@ public class Team extends JPanel {
 		add(sort);
 		
 		final JButton find = new JButton("New button");
-		find.addActionListener(new ActionListener() {
-			@SuppressWarnings("null")
-			public void actionPerformed(ActionEvent e) {
-				TeamBLService t;
-				ArrayList<TeamVO> team = new ArrayList<TeamVO>();
-				Object[][] info = null;
-				try {
-					t = Rmi.getTeamRMI();
-					team.add(t.getTeamInfo(sortkey.getText()));
-					info = getdata(team);
-				} catch (NotBoundException | IOException | TransformerFactoryConfigurationError | TransformerException | SVGConverterException e1) {
-					// TODO 自动生成的 catch 块
-					e1.printStackTrace();
-				}
-				
-				
-				if(info.length != 0){
-					teamlist.updateTable(info);
-				}
-				else{
-					JOptionPane.showMessageDialog(null, "未查找到对应结果", "警告", JOptionPane.ERROR_MESSAGE);
-				}
-				
-			}
-		});
+		
 		find.setToolTipText("\u67E5\u8BE2\u5355\u72EC\u7403\u5458\u4FE1\u606F");
 		find.setIcon(new ImageIcon("D:\\\u5927\u4E8C\u4E0B\\java\\DSSforNBA_Client\\pictures\\\u67E5\u627E.png"));
 		find.setBounds(513, 65, 69, 24);
@@ -209,7 +163,29 @@ public class Team extends JPanel {
             	
             }
         });
-	
+		sort.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+				TeamBLService t;
+				ArrayList<TeamVO> team = new ArrayList<TeamVO>();
+				Object[][] info = null;
+				
+					t = Rmi.getTeamRMI();
+					team = t.sort(comboBox.getSelectedItem().toString());
+					info = getdata(team);
+					teamlist.updateTable(info);
+				
+				
+				if(info.length == 0){
+				
+					JOptionPane.showMessageDialog(null, "未查找到对应结果", "警告", JOptionPane.ERROR_MESSAGE);
+				}
+				} catch (NotBoundException | IOException | TransformerFactoryConfigurationError | TransformerException | SVGConverterException e1) {
+					// TODO 自动生成的 catch 块
+					e1.printStackTrace();
+				}
+			}
+		});
 		top.addMouseListener(new MouseListener() {
             
             @Override
@@ -267,6 +243,30 @@ public class Team extends JPanel {
             	
             }
         });
+		find.addActionListener(new ActionListener() {
+			@SuppressWarnings("null")
+			public void actionPerformed(ActionEvent e) {
+				try {
+				TeamBLService t;
+				ArrayList<TeamVO> team = new ArrayList<TeamVO>();
+				Object[][] info ;
+			
+					t = Rmi.getTeamRMI();
+					team.add(t.getTeamInfo(sortkey.getText()));
+					info = getdata(team);
+					teamlist.updateTable(info);
+				
+				
+				if(info.length == 0){
+					JOptionPane.showMessageDialog(null, "未查找到对应结果", "警告", JOptionPane.ERROR_MESSAGE);
+				}
+				} catch (NotBoundException | IOException | TransformerFactoryConfigurationError | TransformerException | SVGConverterException e1) {
+					// TODO 自动生成的 catch 块
+					e1.printStackTrace();
+				}
+				
+			}
+		});
 		
 	}
 	
@@ -289,16 +289,16 @@ public class Team extends JPanel {
 			return a;
 		}else{
 			for(int i=0;i<showlist.size();i++){
-				System.out.println(showlist.get(i)==null);
+				System.out.println("tureorfalse"+showlist.get(i)==null);
 				String teamnameAbb=showlist.get(i).getInfo().getTeamAbb();
 				System.out.println(teamnameAbb);
 				String image;
 				File svgpic=new File("pictures\\teams\\"+teamnameAbb+".svg");
 				File file=new File("pictures/TEAMPNG/"+teamnameAbb+".png");
 				if(svgpic.exists()){//svg图片存在
-					System.out.println("111---");
+					//System.out.println("111---");
 					if(!file.exists()){//png不存在，新建png图片		
-						System.out.println("222---");
+						//System.out.println("222---");
 						InputStream in = new FileInputStream(svgpic);			
 						Document svgXmlDoc = rasterizer.createDocument(in);
 					    // Save this SVG into a file (required by SVG -> PNG transformation process)			
