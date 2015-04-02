@@ -156,14 +156,7 @@ public class Player extends JPanel {
 				}
 				
 				if(player!=null){
-					Object[][]  info = new Object[500][3];
-					int i = 0;
-					for (PlayerVO thisplayer:player) {
-						info[0][0] = "pictures/portrait/"+thisplayer.getInfo().getName()+".png";
-						info[0][1] = thisplayer.getInfo().getName();
-						info[0][2] = thisplayer.getData().getTeamName();
-						i++;
-					}
+					Object[][]  info = getdata(player);
 					playerlist.updateTable(info);
 				}
 				else{
@@ -172,11 +165,7 @@ public class Player extends JPanel {
 				
 			}
 		});
-		find.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//findkey
-			}
-		});
+		
 		find.setToolTipText("\u67E5\u8BE2\u5355\u72EC\u7403\u5458\u4FE1\u606F");
 		find.setIcon(new ImageIcon("D:\\\u5927\u4E8C\u4E0B\\java\\DSSforNBA_Client\\pictures\\\u67E5\u627E.png"));
 		find.setBounds(512, 64, 69, 24);
