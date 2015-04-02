@@ -284,7 +284,7 @@ public class Team extends JPanel {
 		
 		
 		System.out.println(showlist.size());
-		if(showlist.size()==0){
+		if(showlist.size()==0||showlist==null){
 			Object[][] a={{"","",""}};
 			return a;
 		}else{
