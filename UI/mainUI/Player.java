@@ -54,6 +54,7 @@ public class Player extends JPanel {
 	locationMap lm= new locationMap(); 
 	PartitionMap pm = new PartitionMap();
 	PlayerMap pym = new PlayerMap();
+	ArrayList<PlayerVO> player = new ArrayList<PlayerVO>();
 	
 	Icon a=new ImageIcon("pictures/肖像.png");
 	Icon b=new ImageIcon("pictures/名称.png");
@@ -80,7 +81,7 @@ public class Player extends JPanel {
 		sort.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PlayerBLService p;
-				ArrayList<PlayerVO> player = new ArrayList<PlayerVO>();
+
 				try {
 					p = Rmi.getPlayerRMI();
 
@@ -127,7 +128,7 @@ public class Player extends JPanel {
 					}
 			
 					
-					playerlist.updateTable(info,3);
+					playerlist.updateTable(info,0,new String[] {"","",""});
 				}
 				else{
 					JOptionPane.showMessageDialog(null, "未查找到对应结果", "警告", JOptionPane.ERROR_MESSAGE);
@@ -145,7 +146,6 @@ public class Player extends JPanel {
 		find.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PlayerBLService p;
-				ArrayList<PlayerVO>  player = new ArrayList<PlayerVO>();
 				try {
 					p = Rmi.getPlayerRMI();
 					String Findkey = findkey.getText();
@@ -158,7 +158,7 @@ public class Player extends JPanel {
 				
 				if(player!=null){
 					Object[][]  info = getdata(player);
-					playerlist.updateTable(info,3);
+					playerlist.updateTable(info,0,new String[] {"","",""});
 				}
 				else{
 					JOptionPane.showMessageDialog(null, "未查找到对应结果", "警告", JOptionPane.ERROR_MESSAGE);
@@ -178,7 +178,83 @@ public class Player extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				Playerchossen Pc = new Playerchossen();
 				showcoloumn = Pc.main();
+				int length = 0;
+				for(boolean temp:showcoloumn){
+					if(temp ==true){
+						length++;
+					}
+				}
 				
+				if(!player.isEmpty()){
+					Object[][]  info = new Object[50][length+3];
+					ArrayList<String> headtitle = new ArrayList<String>();
+					headtitle.add("");headtitle.add("");headtitle.add("");
+
+					int i = 0;
+					for (PlayerVO thisplayer:player) {
+						int tempi = 3;	
+						info[i][0] = "pictures/portrait/"+thisplayer.getInfo().getName()+".png";
+						info[i][1] = thisplayer.getInfo().getName();
+						info[i][2] = thisplayer.getData().getTeamName();
+						//分别添加数据
+						if(showcoloumn[0]==true){
+							info[i][tempi] = thisplayer.getData().getMatchNum();
+							tempi++;
+							headtitle.add("参赛场数");
+						}
+						if(showcoloumn[1]==true){
+							info[i][tempi] = thisplayer.getData().getPointNum();
+							tempi++;
+							headtitle.add("得分");
+						}
+						if(showcoloumn[2]==true){
+							info[i][tempi] = thisplayer.getData().getReboundNum();
+							tempi++;
+							headtitle.add("篮板数");
+						}
+						if(showcoloumn[3]==true){
+							info[i][tempi] = thisplayer.getData().getEfficiency();
+							tempi++;
+							headtitle.add("效率");
+						}
+						if(showcoloumn[4]==true){
+							info[i][tempi] = thisplayer.getData().getAssistNum();
+							tempi++;
+							headtitle.add("助攻数");
+						}
+						if(showcoloumn[5]==true){
+							info[i][tempi] = thisplayer.getData().getGmSc();
+							tempi++;
+							headtitle.add("Gmsc效率");
+						}
+						if(showcoloumn[6]==true){
+							info[i][tempi] = thisplayer.getData().getStealNum();
+							tempi++;
+							headtitle.add("抢断数");
+						}
+						if(showcoloumn[7]==true){
+							info[i][tempi] = thisplayer.getData().getTurnoverNum();
+							tempi++;
+							headtitle.add("失误数");
+						}
+						if(showcoloumn[8]==true){
+							info[i][tempi] = thisplayer.getData().getDoubleNum();
+							tempi++;
+							headtitle.add("两双数");
+						}
+						if(showcoloumn[9]==true){
+							info[i][tempi] = thisplayer.getData().getFoulNum();
+							tempi++;
+							headtitle.add("犯规数");
+						}
+						i++;
+						if(i==50){break;}
+					}
+					playerlist.updateTable(info,length,	(String[]) headtitle.toArray());
+				}
+				
+				
+
 				
 			}
 		});
@@ -219,8 +295,8 @@ public class Player extends JPanel {
 		findkey.setVisible(true);
 		
 		
-		pvo=pbs.getAllPlayer();
-		data=getdata(pvo);
+		player = pbs.getAllPlayer();
+		data=getdata(player);
 		playerlist=new TablePanel(title,a,b,c,data,15,125,555,457,85,102,280,155,new Font("Dialog", 0, 30),new Font("Dialog", 0, 15),178,147);
 		
 		//双击进入球员界面

@@ -110,10 +110,10 @@ public class Playerchossen extends JDialog {
 			}
 		}
 		{
-			JCheckBox 盖帽数 = new JCheckBox("\u76D6\u5E3D\u6570");
-			contentPanel.add(盖帽数, "cell 0 4");
+			JCheckBox 两双数 = new JCheckBox("\u76D6\u5E3D\u6570");
+			contentPanel.add(两双数, "cell 0 4");
 			
-			if(盖帽数.isSelected()){
+			if(两双数.isSelected()){
 				Result[8] = true;
 			}
 		}

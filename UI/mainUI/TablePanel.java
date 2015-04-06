@@ -91,15 +91,25 @@ public class TablePanel extends JPanel implements TableModelListener {
 		public Object[][] updatedata(Object[][] info,int columnnum){
 			Object Data[][] = new Object[info.length][columnnum];
 			for(int i = 0; i<info.length;i++){
-				Data[i]= new Object[] {getImageIcon((String)info[i][0],
-						picwidth, piclength), info[i][1], info[i][2] };
+				Object[] temp = new Object[columnnum];
+				temp[0] = getImageIcon((String)info[i][0],
+						picwidth, piclength);
+				temp[1] = info[i][1];
+				temp[2] = info[i][2];
+				int tempadd = 1;
+				while(columnnum!=0){
+					temp[2+tempadd] = info[i][2+tempadd];
+					columnnum--;
+					tempadd++;
+				}
+				Data[i]= temp;
 			}
 			data = Data;
 			return Data;
 		}
 		
 		//初始化数据
-		private Object data[][] = updatedata(TablePanel.this.data,3);
+		private Object data[][] = updatedata(TablePanel.this.data,0);
 
 		public MyTableModel() {
 		}
@@ -295,8 +305,9 @@ public class TablePanel extends JPanel implements TableModelListener {
 	// stop
 	
 	/* 用于刷新表格，info[][]为改动过后的数组，存储表格数据 */
-	public void updateTable(Object info[][],int columnnum) {
+	public void updateTable(Object info[][],int columnnum,String[] HeadTitle) {
 		data = info;
+		headTitle = HeadTitle;
 		//MyTableModel model = new MyTableModel();
 		MyTableModel model = (MyTableModel)table.getModel();
 		model.updatedata(info,columnnum);
