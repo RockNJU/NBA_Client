@@ -175,7 +175,7 @@ public class Team extends JPanel {
 					t = Rmi.getTeamRMI();
 					team = t.sort(teammap.getItem(comboBox.getSelectedItem().toString()));
 					info = getdata(team);
-					teamlist.updateTable(info);
+					teamlist.updateTable(info,3);
 				
 				
 				if(info.length == 0){
@@ -256,7 +256,7 @@ public class Team extends JPanel {
 					t = Rmi.getTeamRMI();
 					team.add(t.getTeamInfo(sortkey.getText()));
 					info = getdata(team);
-					teamlist.updateTable(info);
+					teamlist.updateTable(info,3);
 				
 				
 				if(info.length == 0){

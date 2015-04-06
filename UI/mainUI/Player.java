@@ -50,6 +50,7 @@ public class Player extends JPanel {
 	JComboBox partition;
 	JComboBox according;
 	JTextField findkey;
+	boolean[] showcoloumn = new boolean[10];
 	locationMap lm= new locationMap(); 
 	PartitionMap pm = new PartitionMap();
 	PlayerMap pym = new PlayerMap();
@@ -126,7 +127,7 @@ public class Player extends JPanel {
 					}
 			
 					
-					playerlist.updateTable(info);
+					playerlist.updateTable(info,3);
 				}
 				else{
 					JOptionPane.showMessageDialog(null, "未查找到对应结果", "警告", JOptionPane.ERROR_MESSAGE);
@@ -157,7 +158,7 @@ public class Player extends JPanel {
 				
 				if(player!=null){
 					Object[][]  info = getdata(player);
-					playerlist.updateTable(info);
+					playerlist.updateTable(info,3);
 				}
 				else{
 					JOptionPane.showMessageDialog(null, "未查找到对应结果", "警告", JOptionPane.ERROR_MESSAGE);
@@ -173,6 +174,14 @@ public class Player extends JPanel {
 		add(find);
 		
 		top = new JButton("New button");
+		top.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Playerchossen Pc = new Playerchossen();
+				showcoloumn = Pc.main();
+				
+				
+			}
+		});
 		top.setToolTipText("\u70B9\u51FB\u8868\u5934\u8FDB\u884C\u6B63\u5012\u5E8F\u6392\u5217");
 		top.setIcon(new ImageIcon("D:\\\u5927\u4E8C\u4E0B\\java\\DSSforNBA_Client\\pictures\\\u6B63\u5E8F.png"));
 		top.setBounds(437, 22, 69, 23);
@@ -235,15 +244,7 @@ public class Player extends JPanel {
 
 		
 		sort.addMouseListener(new MouseListener() {
-            
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                // TODO Auto-generated method stub                
-            }           
-            @Override
-            public void mousePressed(MouseEvent e) {
-                // TODO Auto-generated method stub                
-            }          
+      
             @Override
             public void mouseExited(MouseEvent e) {
                 // TODO Auto-generated method stub
@@ -255,23 +256,25 @@ public class Player extends JPanel {
                 // TODO Auto-generated method stub
             	sort.setIcon(new ImageIcon("pictures//排列后.png"));
             	
-            }            
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                // TODO Auto-generated method stub
             }
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO 自动生成的方法存根
+				
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO 自动生成的方法存根
+				
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO 自动生成的方法存根
+				
+			}            
         });
 
-		top.addMouseListener(new MouseListener() {
-            
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                // TODO Auto-generated method stub                
-            }           
-            @Override
-            public void mousePressed(MouseEvent e) {
-                // TODO Auto-generated method stub                
-            }          
+		top.addMouseListener(new MouseListener() {     
             @Override
             public void mouseExited(MouseEvent e) {
                 // TODO Auto-generated method stub
@@ -289,6 +292,16 @@ public class Player extends JPanel {
                 // TODO Auto-generated method stub
             	
             }
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO 自动生成的方法存根
+				
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO 自动生成的方法存根
+				
+			}
         });
 
 		find.addMouseListener(new MouseListener() {
