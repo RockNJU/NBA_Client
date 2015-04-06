@@ -204,6 +204,8 @@ public class TablePanel extends JPanel implements TableModelListener {
 		table.setSelectionForeground(Color.WHITE);
 		table.setShowVerticalLines(false);// 是否显示垂直网格线?
 		table.setGridColor(new Color(67, 54, 49));
+		
+		
 
 		// 其他一些属性
 		table.setDragEnabled(false); // 不许乱拖动
